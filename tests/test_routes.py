@@ -171,7 +171,7 @@ class TestAccountService(TestCase):
         account_data = AccountFactory().serialize()
         resp = self.client.put(f"{BASE_URL}/{fake_id}", json=account_data)
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-    
+
     def test_delete_account(self):
         """It should Delete an Account"""
         account = self._create_accounts(1)[0]
@@ -202,3 +202,4 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # Check for the CORS header
         self.assertEqual(response.headers.get('Access-Control-Allow-Origin'), '*')
+
